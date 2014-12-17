@@ -6,6 +6,10 @@ require 'sinatra'
 require 'mustache'
 # require 'sinatra/flash'
 
+after do
+	ActiveRecord::Base.connection.close
+end
+
 enable :sessions
 
 get '/' do
