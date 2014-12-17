@@ -4,7 +4,7 @@ require 'pry'
 require 'active_record'
 require 'sinatra'
 require 'mustache'
-require 'sinatra/flash'
+# require 'sinatra/flash'
 
 enable :sessions
 
@@ -21,8 +21,10 @@ post '/checker' do
 		Mustache.render(File.read('./checker_anagram.html'), {anagrams: anagrams})
 	else
 		anagrams = Anagram.all.to_a
-		flashes = flash.now[:checker] = "NOT AN ANAGRAM DUDE"
+		# flashes = flash.now[:checker] = "NOT AN ANAGRAM DUDE"
 		# flashes = flash[:checker] -- works if you do flash.next.. because it's the next time it's called
-		Mustache.render(File.read('./checker_anagram.html'), {anagrams: anagrams, flashes: flashes})
+		Mustache.render(File.read('./checker_anagram_fail.html'), {anagrams: anagrams})
+
+		#add flashes:flashes inside mustache in line above 
 	end
 end
