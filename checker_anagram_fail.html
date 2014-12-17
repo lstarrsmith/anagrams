@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anagram Checker</title>
+</head>
+<body>
+  <h2>Anagram Checker</h2>
+  
+  <form action="/checker" method="POST">
+    <input type="text" name="word1" placeholder="1st word or phrase.." />
+    <input type="text" name="word2" placeholder=".. 2nd word or phrase" />
+   
+    <button>Submit</button>
+  </form>
+
+  <p style="color:red">Not an anagram dude... try again</p>
+
+
+  <h3>Anagrams List</h3>
+  <ul>
+    {{#anagrams}}
+      <li>{{word1}} || {{word2}}</li>
+    {{/anagrams}}
+  </ul>
+
+</body>
+</html>
